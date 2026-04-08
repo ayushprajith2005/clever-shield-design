@@ -1,24 +1,15 @@
-import { Phone, Link2, Newspaper, ShieldCheck, AlertTriangle, ShieldAlert, Mic, Volume2, ArrowRight } from "lucide-react";
+import { Link2, Newspaper, ShieldCheck, AlertTriangle, ShieldAlert, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const features = [
   {
-    icon: Phone,
-    title: "Call Scam Detection",
-    desc: "Our AI listens in real-time to phone calls and identifies scam patterns, pressure tactics, and social engineering attempts. Get instant alerts before sharing any personal info.",
-    details: ["Live voice pattern analysis", "Urgency tactic detection", "Caller ID verification", "Automatic call recording flag"],
+    icon: Link2,
+    title: "Phishing Detection",
+    desc: "Paste any URL, email, or message and our AI will analyze it for phishing attempts, malicious redirects, and suspicious content. Highlighted results show exactly what's dangerous.",
+    details: ["URL redirect chain analysis", "SSL certificate verification", "Content pattern matching", "Suspicious keyword highlighting"],
     color: "text-primary",
     bg: "bg-primary/10",
     border: "border-primary/20",
-  },
-  {
-    icon: Link2,
-    title: "Phishing Link Scanner",
-    desc: "Paste any URL or message and our AI will analyze it for phishing attempts, malicious redirects, and suspicious content. Highlighted results show exactly what's suspicious.",
-    details: ["URL redirect chain analysis", "SSL certificate verification", "Content pattern matching", "Suspicious keyword highlighting"],
-    color: "text-success",
-    bg: "bg-success/10",
-    border: "border-success/20",
   },
   {
     icon: Newspaper,
@@ -43,13 +34,13 @@ const Features = () => (
       <div className="container-width">
         <div className="mx-auto max-w-2xl text-center mb-16">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">Powerful Features for <span className="text-gradient">Complete Protection</span></h1>
-          <p className="text-muted-foreground text-lg">Three AI modules working together to shield you from every type of digital threat.</p>
+          <p className="text-muted-foreground text-lg">Two AI modules working together to shield you from every type of digital threat.</p>
         </div>
 
         {/* Feature details */}
         <div className="space-y-12 mb-20">
           {features.map((f, i) => (
-            <div key={f.title} className={`grid md:grid-cols-2 gap-8 items-center ${i % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
+            <div key={f.title} className={`grid md:grid-cols-2 gap-8 items-center`}>
               <div className={i % 2 === 1 ? "md:order-2" : ""}>
                 <div className={`inline-flex rounded-xl ${f.bg} p-3 mb-4`}>
                   <f.icon size={24} className={f.color} />
@@ -59,7 +50,7 @@ const Features = () => (
                 <div className="space-y-3">
                   {f.details.map((d) => (
                     <div key={d} className="flex items-center gap-3">
-                      <div className={`h-1.5 w-1.5 rounded-full ${f.bg.replace('/10', '')} ${f.color.replace('text-', 'bg-')}`} />
+                      <CheckCircle2 size={14} className={f.color} />
                       <span className="text-sm text-foreground">{d}</span>
                     </div>
                   ))}
@@ -74,22 +65,6 @@ const Features = () => (
                   </div>
                   {i === 0 && (
                     <div className="space-y-3">
-                      <div className="flex items-center justify-center gap-4 py-4">
-                        <Mic size={20} className="text-muted-foreground" />
-                        <div className="flex h-10 items-center gap-[2px]">
-                          {Array(16).fill(0).map((_, j) => (
-                            <div key={j} className="w-1 rounded-full bg-primary" style={{ height: `${20 + Math.sin(j * 0.8) * 60}%` }} />
-                          ))}
-                        </div>
-                        <Volume2 size={20} className="text-muted-foreground" />
-                      </div>
-                      <div className="rounded-lg bg-warning/10 border border-warning/20 p-3 text-center">
-                        <p className="text-xs font-semibold text-warning">⚠ Urgency language detected</p>
-                      </div>
-                    </div>
-                  )}
-                  {i === 1 && (
-                    <div className="space-y-3">
                       <div className="rounded-lg bg-accent p-3 text-xs font-mono text-muted-foreground break-all">
                         https://bit.ly/<span className="text-danger font-semibold">fr33-pr1ze-n0w</span>
                       </div>
@@ -98,7 +73,7 @@ const Features = () => (
                       </div>
                     </div>
                   )}
-                  {i === 2 && (
+                  {i === 1 && (
                     <div className="space-y-3">
                       <div className="rounded-lg bg-accent p-3 text-xs text-muted-foreground italic">
                         "Government giving free $10,000 grants to all citizens..."

@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Index from "./pages/Index.tsx";
 import Features from "./pages/Features.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
+import History from "./pages/History.tsx";
 import About from "./pages/About.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/features" element={<Features />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/history" element={<History />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

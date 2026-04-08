@@ -6,6 +6,7 @@ const navLinks = [
   { label: "Home", path: "/" },
   { label: "Features", path: "/features" },
   { label: "Dashboard", path: "/dashboard" },
+  { label: "History", path: "/history" },
   { label: "About", path: "/about" },
 ];
 
@@ -37,7 +38,6 @@ const Navbar = () => {
           <span className="text-lg font-bold text-foreground">ScamShield <span className="text-gradient">AI</span></span>
         </Link>
 
-        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
@@ -73,7 +73,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden glass-card border-t border-border/40 p-4 space-y-1">
           {navLinks.map((link) => (
