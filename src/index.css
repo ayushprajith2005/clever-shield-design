@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,6 +6,59 @@
 
 @layer base {
   :root {
+    --background: 220 20% 97%;
+    --foreground: 220 40% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 40% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 40% 10%;
+
+    --primary: 200 100% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 94%;
+    --secondary-foreground: 220 40% 10%;
+
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 220 14% 92%;
+    --accent-foreground: 220 40% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 70% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --danger: 0 84% 60%;
+    --danger-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 200 100% 45%;
+
+    --radius: 0.75rem;
+
+    --hero-gradient-start: 200 100% 45%;
+    --hero-gradient-end: 220 80% 55%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
     --background: 222 47% 6%;
     --foreground: 210 40% 96%;
 
@@ -15,7 +68,7 @@
     --popover: 222 41% 10%;
     --popover-foreground: 210 40% 96%;
 
-    --primary: 187 100% 50%;
+    --primary: 190 100% 50%;
     --primary-foreground: 222 47% 6%;
 
     --secondary: 222 30% 16%;
@@ -27,35 +80,33 @@
     --accent: 222 30% 18%;
     --accent-foreground: 210 40% 96%;
 
-    --destructive: 348 83% 60%;
+    --destructive: 0 62% 50%;
     --destructive-foreground: 210 40% 98%;
 
-    --success: 145 100% 45%;
-    --success-foreground: 222 47% 6%;
+    --success: 152 70% 42%;
+    --success-foreground: 0 0% 100%;
 
-    --warning: 48 100% 50%;
+    --warning: 38 92% 50%;
     --warning-foreground: 222 47% 6%;
 
-    --danger: 348 83% 60%;
+    --danger: 348 83% 55%;
     --danger-foreground: 210 40% 98%;
 
     --border: 222 30% 18%;
     --input: 222 30% 18%;
-    --ring: 187 100% 50%;
+    --ring: 190 100% 50%;
 
-    --radius: 1rem;
-
-    --glass-bg: 222 41% 10% / 0.6;
-    --glass-border: 222 30% 25% / 0.3;
+    --hero-gradient-start: 190 100% 50%;
+    --hero-gradient-end: 220 80% 50%;
 
     --sidebar-background: 222 41% 8%;
     --sidebar-foreground: 210 40% 96%;
-    --sidebar-primary: 187 100% 50%;
+    --sidebar-primary: 190 100% 50%;
     --sidebar-primary-foreground: 222 47% 6%;
     --sidebar-accent: 222 30% 16%;
     --sidebar-accent-foreground: 210 40% 96%;
     --sidebar-border: 222 30% 18%;
-    --sidebar-ring: 187 100% 50%;
+    --sidebar-ring: 190 100% 50%;
   }
 }
 
@@ -64,53 +115,67 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
   }
 }
 
 @layer utilities {
   .glass-card {
-    @apply bg-card/60 backdrop-blur-xl border border-border/30 rounded-2xl;
+    @apply bg-card/70 backdrop-blur-xl border border-border/40 shadow-sm;
+  }
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+  .container-width {
+    @apply max-w-7xl mx-auto;
   }
   .glow-primary {
-    box-shadow: 0 0 20px hsl(187 100% 50% / 0.15), 0 0 60px hsl(187 100% 50% / 0.05);
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.15), 0 0 80px hsl(var(--primary) / 0.05);
   }
   .glow-success {
-    box-shadow: 0 0 20px hsl(145 100% 45% / 0.2), 0 0 60px hsl(145 100% 45% / 0.05);
+    box-shadow: 0 0 20px hsl(var(--success) / 0.2);
   }
   .glow-warning {
-    box-shadow: 0 0 20px hsl(48 100% 50% / 0.2), 0 0 60px hsl(48 100% 50% / 0.05);
+    box-shadow: 0 0 20px hsl(var(--warning) / 0.2);
   }
   .glow-danger {
-    box-shadow: 0 0 20px hsl(348 83% 60% / 0.2), 0 0 60px hsl(348 83% 60% / 0.05);
+    box-shadow: 0 0 20px hsl(var(--danger) / 0.2);
   }
-}
-
-@keyframes pulse-ring {
-  0% { transform: scale(0.8); opacity: 0.6; }
-  50% { transform: scale(1.2); opacity: 0; }
-  100% { transform: scale(0.8); opacity: 0.6; }
-}
-
-@keyframes scan-line {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--hero-gradient-start)), hsl(var(--hero-gradient-end)));
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--hero-gradient-start)), hsl(var(--hero-gradient-end)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  50% { transform: scale(1.15); opacity: 0; }
+  100% { transform: scale(0.9); opacity: 0.5; }
+}
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-pulse-ring {
-  animation: pulse-ring 2s ease-in-out infinite;
-}
-
-.animate-scan-line {
-  animation: scan-line 2s ease-in-out infinite;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulse-ring 2s ease-in-out infinite; }
+.animate-scan-line { animation: scan-line 2s ease-in-out infinite; }
+.animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-400 { animation-delay: 0.4s; }
