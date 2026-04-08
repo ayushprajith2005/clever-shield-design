@@ -3,15 +3,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import BottomNav from "@/components/BottomNav";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Index from "./pages/Index.tsx";
-import Alerts from "./pages/Alerts.tsx";
-import CallDetection from "./pages/CallDetection.tsx";
-import LinkScanner from "./pages/LinkScanner.tsx";
-import FakeNews from "./pages/FakeNews.tsx";
-import History from "./pages/History.tsx";
-import Reports from "./pages/Reports.tsx";
-import SettingsPage from "./pages/SettingsPage.tsx";
+import Features from "./pages/Features.tsx";
+import Dashboard from "./pages/Dashboard.tsx";
+import About from "./pages/About.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -22,18 +19,15 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/alerts" element={<Alerts />} />
-          <Route path="/call-detection" element={<CallDetection />} />
-          <Route path="/link-scanner" element={<LinkScanner />} />
-          <Route path="/fake-news" element={<FakeNews />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/reports" element={<Reports />} />
-          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <BottomNav />
+        <Footer />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
